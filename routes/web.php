@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\DocumentoController;
+use App\Http\Controllers\OficinaController;
+use App\Http\Controllers\TdocumentoController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +21,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('documentos/tdocumentos',TdocumentoController::class)
+->names('documentos.tdocumentos');
+Route::resource('documentos/cliente',ClienteController::class)
+->names('documentos.clientes');
+
+Route::resource('oficina/users',OficinaController::class)
+->names('oficinas.users');
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

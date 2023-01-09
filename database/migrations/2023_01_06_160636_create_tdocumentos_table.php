@@ -15,6 +15,7 @@ class CreateTdocumentosTable extends Migration
     {
         Schema::create('tdocumentos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
             $table->timestamps();
         });
     }
