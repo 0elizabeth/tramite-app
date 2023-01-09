@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Documentos extends Model
 {
     use HasFactory;
+    public function cliente(){
+        return $this->belongsTo(Clientes::class);
+    }
+    public function movimiento(){
+        return $this->hasMany(Movimientos::class);
+    }
 }

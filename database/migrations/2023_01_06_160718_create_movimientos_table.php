@@ -15,6 +15,10 @@ class CreateMovimientosTable extends Migration
     {
         Schema::create('movimientos', function (Blueprint $table) {
             $table->id();
+            $table->date('fecha');
+            $table->hora('hora');
+            $table->foreing('oficina_id')->references('id')->on('oficinas');
+            $table->foreing('oficina_id')->references('id')->on('oficinas');
             $table->timestamps();
         });
     }
